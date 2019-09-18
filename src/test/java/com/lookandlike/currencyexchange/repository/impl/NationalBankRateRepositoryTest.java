@@ -3,18 +3,17 @@ package com.lookandlike.currencyexchange.repository.impl;
 import com.lookandlike.currencyexchange.data.dto.CurrencyDto;
 import com.lookandlike.currencyexchange.data.entity.Rate;
 import com.lookandlike.currencyexchange.exception.CurrencyException;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-public class OpenApiRateRepositoryTest {
+public class NationalBankRateRepositoryTest {
 
-    private OpenApiRateRepository openApiRateRepository = new OpenApiRateRepository();
+    private NationalBankRateRepository nationalBankRateRepository = new NationalBankRateRepository();
     private CurrencyDto currencyDto;
 
     @Before
@@ -26,10 +25,10 @@ public class OpenApiRateRepositoryTest {
     }
 
     @Test
-    public void sendSuccessGetRequest() throws CurrencyException {
-        List<Rate> rates = openApiRateRepository.getRate(currencyDto);
+    public void sendSuccessRequest() throws CurrencyException {
+        List<Rate> rates = nationalBankRateRepository.getRate(currencyDto);
         boolean actual = rates.size() > 0;
-        boolean expeсt = true;
-        assertEquals(actual, expeсt);
+        boolean expect = true;
+        assertEquals(actual, expect);
     }
 }
